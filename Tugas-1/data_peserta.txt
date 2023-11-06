@@ -1,0 +1,6 @@
+Data Peserta Bootcamp Digital Skill - NodeJS Backend Development
+1. Nama: Bintang Kurniawan Pratama Putra
+2. Email: bintangkurniawan1909@gmail.com
+3. Sistem Operasi yang digunakan: Windows 10
+4. Akun Gitlab/Github: https://github.com/bintangkurniawanpp
+5. Akun Telegram: https://t.me/bolduppercase
