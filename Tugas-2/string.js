@@ -26,35 +26,27 @@ var eighthWord = sentence[24] + sentence[25] + sentence[26] + sentence[27] + sen
 var sentence2 = 'wow JavaScript is so cool';
 
 var exampleFirstWord2 = sentence2.substring(0, 3);
-var words = sentence2.split(' '); 
 
-var secondWord2 = words[1];
-var thirdWord2 = words[2];
-var fourthWord2 = words[3]; 
-var fifthWord2 = words[4];
+var secondWord2 = sentence2.substring(4, 14);
+var thirdWord2 = sentence2.substring(15, 17);
+var fourthWord2 = sentence2.substring(18, 20);
+var fifthWord2 = sentence2.substring(21);
 
 // Soal 4
 var sentence3 = 'wow JavaScript is so cool';
 
 var exampleFirstWord3 = sentence3.substring(0, 3);
-var words3 = sentence3.split(' ');
 
-var secondWord3 = words3[1];
-var thirdWord3 = words3[2];
-var fourthWord3 = words3[3];
-var fifthWord3 = words3[4];
+var secondWord3 = sentence3.substring(4, 14);
+var thirdWord3 = sentence3.substring(15, 17);
+var fourthWord3 = sentence3.substring(18, 20);
+var fifthWord3 = sentence3.substring(21);
 
 var firstWordLength = exampleFirstWord3.length;
 var secondWordLength = secondWord3.length;
 var thirdWordLength = thirdWord3.length;
 var fourthWordLength = fourthWord3.length;
 var fifthWordLength = fifthWord3.length;
-
-
-
-
-
-
 
 
 console.log("Jawaban soal 1");
