@@ -1,6 +1,8 @@
-import sapa from './lib/sapa.js';
-import convert from './lib/convert.js';
-import checkScore from './lib/checkScore.js';
+// import sapa from './lib/sapa.js';
+// import convert from './lib/convert.js';
+// import checkScore from './lib/checkScore.js';
+
+import { sapa, convert, checkScore } from './lib/functions.js'
 
 const command = process.argv[2];
 

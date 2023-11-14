@@ -1,7 +1,7 @@
-// Soal 1
-const sapa = (nama) => {
-    return `halo selamat pagi, ${nama}`;
-};
+// // Soal 1
+// const sapa = (nama) => {
+//     return `halo selamat pagi, ${nama}`;
+// };
   
-export default sapa;
+// export default sapa;
   
