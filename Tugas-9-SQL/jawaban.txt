@@ -1,0 +1,75 @@
+1. Membuat Database
+
+CREATE DATABASE library;
+
+2. Membuat Table di Dalam Database
+
+-- Tabel users
+CREATE TABLE users (
+    id INTEGER AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255),
+    email VARCHAR(255),
+    password VARCHAR(255)
+);
+
+-- Tabel categories
+CREATE TABLE categories (
+    id INTEGER AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255)
+);
+
+-- Tabel books
+CREATE TABLE books (
+    id INTEGER AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(255),
+    summary TEXT,
+    stock INTEGER,
+    category_id INTEGER,
+    FOREIGN KEY (category_id) REFERENCES categories(id)
+);
+
+3. Masukkan data ke dalam tabel
+
+-- Masukkan data ke tabel users
+INSERT INTO users (name, email, password) VALUES
+    ('John Doe', 'john@doe.com', 'john123'),
+    ('Jane Doe', 'jane@doe.com', 'jenita123');
+
+-- Masukkan data ke tabel categories
+INSERT INTO categories (name) VALUES
+    ('Novel'),
+    ('Manga'),
+    ('Comic'),
+    ('History'),
+    ('IT');
+
+-- Masukkan data ke tabel books
+INSERT INTO books (title, summary, stock, category_id) VALUES
+    ('One Piece', 'The series focuses on Monkey D Luffy, a young man made of rubber', 50, 2),
+    ('Laskar Pelangi', 'Belitung is known for its richness in tin, making it one of Indonesia\'s richest islands', 25, 1),
+    ('Your Name', 'Mitsuha Miyamizu, a high school girl living in the fictional town of Itomori in Gifu Prefecture\'s', 15, 2);
+
+4. Mengambil Data dari Database
+
+a. Mengambil data users
+
+SELECT id, name, email FROM users;
+
+b. Mengambil data Books
+
+-- Mengambil data books pada table books yang memiliki stock di atas 20 buah
+SELECT * FROM books WHERE stock > 20;
+
+-- Mengambil data books dengan name serupa atau mirip dengan kata kunci "one", "pela", atau "ame"
+SELECT * FROM books WHERE name LIKE '%one%' OR name LIKE '%pela%' OR name LIKE '%ame%';
+
+c. Menampilkan data items books dengan categories
+
+SELECT b.title, b.summary, b.stock, b.category_id, c.name AS category
+FROM books b
+JOIN categories c ON b.category_id = c.id;
+
+5. Mengubah Data dari Database 
+
+-- Mengubah data pada table books untuk buku dengan nama "One Piece" stocknya menjadi 30
+UPDATE books SET stock = 30 WHERE title = 'One Piece';
