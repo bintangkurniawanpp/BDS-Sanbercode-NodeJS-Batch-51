@@ -1,4 +1,4 @@
-const Venue = require('../models/venue')
+const { Venue } = require('../models')
 
 const createVenue = async (req, res) => {
     const venueData = req.body;
