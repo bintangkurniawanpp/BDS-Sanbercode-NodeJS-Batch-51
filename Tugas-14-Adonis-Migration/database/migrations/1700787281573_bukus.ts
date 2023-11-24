@@ -8,7 +8,7 @@ export default class extends BaseSchema {
       table.increments('id').primary()
       table.string('judul', 255).notNullable()
       table.string('ringkasan', 255)
-      table.integer('tahun_terbit').notNullable()
+      table.string('tahun_terbit', 45).notNullable()
       table.integer('halaman').notNullable()
       table.integer('kategori_id').unsigned().references('kategoris.id').onDelete('CASCADE')
       table.timestamps(true, true)
