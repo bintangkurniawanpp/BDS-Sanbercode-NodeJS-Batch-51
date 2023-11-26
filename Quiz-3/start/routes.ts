@@ -27,5 +27,6 @@ Route.get('/', async () => {
 Route
   .group(() => {
     Route.resource('genres', 'GenresController').apiOnly()
+    Route.resource('games', 'GamesController').apiOnly()
   })
   .prefix('/api/v1')
