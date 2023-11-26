@@ -48,7 +48,8 @@ export default class GenresController {
   public async show({ request, response }: HttpContextContract) {
     const genreId = request.param("id");
     try {
-      const genreData = await Database.from("genres")
+      const genreData = await Database
+        .from("genres")
         .where("id", genreId)
         .first();
 
@@ -58,9 +59,18 @@ export default class GenresController {
           message: "Genre not found",
         });
       }
+
+      const gamesData = await Database
+        .from('games')
+        .where('genres_id', genreId)
+        .select('id', 'title', 'gameplay', 'release_date')
+
       response.json({
         status: "success retrieving genre",
-        data: genreData,
+        data: {
+            ...genreData,
+            games: gamesData
+        },
       });
     } catch (error) {
       console.error("Error fetching genre:", error);
