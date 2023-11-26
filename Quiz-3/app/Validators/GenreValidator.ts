@@ -24,7 +24,7 @@ export default class GenreValidator {
    *    ```
    */
   public schema = schema.create({
-    nama: schema.string({ trim: true }, [rules.required()])
+    name: schema.string({ trim: true }, [rules.required()])
   })
 
   /**
