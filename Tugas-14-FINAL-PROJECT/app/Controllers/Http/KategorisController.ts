@@ -13,8 +13,6 @@ export default class KategorisController {
             // const kategorisData = await Kategori.all();
             const kategorisData = await Kategori.query().preload('bukus')
 
-            
-
             response.status(200).json({
                 status: 'success',
                 message: 'Success retrieving all kategori',

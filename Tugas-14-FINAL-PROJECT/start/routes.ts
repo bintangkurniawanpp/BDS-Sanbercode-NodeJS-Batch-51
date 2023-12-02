@@ -20,13 +20,20 @@
 
 import Route from '@ioc:Adonis/Core/Route'
 
+
 Route.get('/', async () => {
   return { hello: 'world' }
 })
 
 Route
   .group(() => {
-    Route.resource('kategori', 'KategorisController').apiOnly()
+    Route.resource('kategori', 'KategorisController').apiOnly().middleware({'*': ['auth']})
     Route.resource('buku', 'BukusController').apiOnly()
-  })
-  .prefix('/api/v1')
+    Route.group(() => {
+      Route.post('/register', 'AuthController.register')
+      Route.post('/login', 'AuthController.login')
+      Route.post('/profile', 'Authcontroller.updateProfile').middleware('auth')
+      Route.post('/otp-confirmation', 'Authcontroller.otpConfirm')
+      Route.get('/me', 'AuthController.me').middleware('auth')
+    }).prefix('auth')
+  }).prefix('/api/v1')

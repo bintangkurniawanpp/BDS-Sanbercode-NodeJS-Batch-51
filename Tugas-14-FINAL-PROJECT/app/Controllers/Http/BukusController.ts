@@ -1,7 +1,7 @@
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import BukuValidator from 'App/Validators/BukuValidator'
 import Buku from 'App/Models/Buku'
-import Database from '@ioc:Adonis/Lucid/Database'
+// import Database from '@ioc:Adonis/Lucid/Database'
 
 export default class BukusController {
     public async index({ response }: HttpContextContract) {
