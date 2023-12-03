@@ -1,0 +1,786 @@
+{
+	"info": {
+		"_postman_id": "ce976418-2796-4bfb-b93b-05cf7e16b171",
+		"name": "Perpustakaan-API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12817545"
+	},
+	"item": [
+		{
+			"name": "Buku",
+			"item": [
+				{
+					"name": "Get All Buku",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AUTHTOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{URL}}/api/v1/buku",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"buku"
+							]
+						},
+						"description": "List semua buku (user)"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Detail Buku",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AUTHTOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/v1/buku/2",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"buku",
+								"2"
+							]
+						},
+						"description": "Menampilkan detail buku berdasarkan id (admin)"
+					},
+					"response": []
+				},
+				{
+					"name": "Post New Buku",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AUTHTOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "judul",
+									"value": "Sample Book 2",
+									"type": "text"
+								},
+								{
+									"key": "ringkasan",
+									"value": "Summary book 2",
+									"type": "text"
+								},
+								{
+									"key": "tahun_terbit",
+									"value": "2002",
+									"type": "text"
+								},
+								{
+									"key": "halaman",
+									"value": "152",
+									"type": "text"
+								},
+								{
+									"key": "kategori_id",
+									"value": "2",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{URL}}/api/v1/buku",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"buku"
+							]
+						},
+						"description": "Menambahkan buku baru (admin)"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Buku",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AUTHTOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "judul",
+									"value": "Updated judul 2",
+									"type": "text"
+								},
+								{
+									"key": "ringkasan",
+									"value": "Updated ringkasan 2",
+									"type": "text"
+								},
+								{
+									"key": "tahun_terbit",
+									"value": "2007",
+									"type": "text"
+								},
+								{
+									"key": "halaman",
+									"value": "3007",
+									"type": "text"
+								},
+								{
+									"key": "kategori_id",
+									"value": "2",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{URL}}/api/v1/buku/2",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"buku",
+								"2"
+							]
+						},
+						"description": "Mengubah data Buku berdasarkan id (admin)"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Buku",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AUTHTOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/v1/buku/3",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"buku",
+								"3"
+							]
+						},
+						"description": "Menghapus data Buku berdasarkan id (admin)"
+					},
+					"response": []
+				}
+			],
+			"description": "User dapat melihat semua list buku  \nAdmin dapat melakukan CRUD data buku"
+		},
+		{
+			"name": "Kategori",
+			"item": [
+				{
+					"name": "Get All Kategori",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AUTHTOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/v1/kategori",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"kategori"
+							]
+						},
+						"description": "List semua Kategori (user)"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Detail Kategori",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AUTHTOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{URL}}/api/v1/kategori/?id=2",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"kategori",
+								""
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						},
+						"description": "Menampilkan detail kategori beserta list buku berdasarkan id (admin)"
+					},
+					"response": []
+				},
+				{
+					"name": "Post New Kategori",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AUTHTOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "nama",
+									"value": "Kategori 3",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{URL}}/api/v1/kategori",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"kategori"
+							]
+						},
+						"description": "Menambahkan kategori baru (admin)"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Kategori",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AUTHTOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "nama",
+									"value": "UpdatedKategori 1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{URL}}/api/v1/kategori/1",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"kategori",
+								"1"
+							]
+						},
+						"description": "Mengubah data Kategori berdasarkan id (admin)"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Kategori",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AUTHTOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/v1/kategori/3",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"kategori",
+								"3"
+							]
+						},
+						"description": "Menghapus data Kategori berdasarkan id (admin)"
+					},
+					"response": []
+				}
+			],
+			"description": "User dapat melihat semua list kategori  \nAdmin dapat melakukan CRUD data kategori"
+		},
+		{
+			"name": "Peminjaman",
+			"item": [
+				{
+					"name": "Get All Peminjaman",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AUTHTOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/v1/peminjaman",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"peminjaman"
+							]
+						},
+						"description": "Menampilkan list peminjaman (admin)"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Detail Peminjaman",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AUTHTOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/v1/peminjaman/?id=1",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"peminjaman",
+								""
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						},
+						"description": "Menampilkan detail peminjaman dengan id tertentu (admin)"
+					},
+					"response": []
+				},
+				{
+					"name": "Post Peminjaman",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AUTHTOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "tanggal_pinjam",
+									"value": "2023-05-16 09:00:00",
+									"type": "text"
+								},
+								{
+									"key": "tanggal_kembali",
+									"value": "2023-05-22 11:00:00",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{URL}}/api/v1/buku/2/peminjaman",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"buku",
+								"2",
+								"peminjaman"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1",
+									"disabled": true
+								}
+							]
+						},
+						"description": "Membuat peminjaman di buku dengan id tertentu. request headers berisi token dan request body berisi jam peminjaman (tanggal_pinjam) dan pengembalian (tanggal_kembali) (user)"
+					},
+					"response": []
+				}
+			],
+			"description": "User dapat meminjam buku\n\nAdmin dapat melihat list data peminjaman dan detail peminjaman tiap user"
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Register User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "usertest@mail.com",
+									"type": "text"
+								},
+								{
+									"key": "nama",
+									"value": "user",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "12345",
+									"type": "text"
+								},
+								{
+									"key": "role",
+									"value": "user",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{URL}}/api/v1/auth/register",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"register"
+							]
+						},
+						"description": "Melakukan pendaftaran user baru dengan memasukan data name, email, password dan role. Aplikasi mengirimkan kode OTP ke email user pendaftar."
+					},
+					"response": []
+				},
+				{
+					"name": "Login User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();\r",
+									"var authToken = jsonData.data.token;\r",
+									"pm.environment.set(\"AUTHTOKEN\", authToken);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"warning": "This is a duplicate header and will be overridden by the Content-Type header generated by Postman.",
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "admintest@mail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "12345",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{URL}}/api/v1/auth/login",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"login"
+							]
+						},
+						"description": "Melakukan login dengan memasukkan email dan password. Response : token API (Bearer Token)"
+					},
+					"response": []
+				},
+				{
+					"name": "Confirm OTP",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AUTHTOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "usertest@mail.com",
+									"type": "text"
+								},
+								{
+									"key": "otp",
+									"value": "620088",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{URL}}/api/v1/auth/otp-confirmation",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"otp-confirmation"
+							]
+						},
+						"description": "Melakukan verifikasi email dengan kode OTP. Semua user harus melakukan verifikasi email untuk dapat mengakses fitur buku, kategori dan peminjaman."
+					},
+					"response": []
+				},
+				{
+					"name": "Update profile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AUTHTOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "bio",
+									"value": "Hello, this is my bio as a user",
+									"type": "text"
+								},
+								{
+									"key": "alamat",
+									"value": "Jln. Manggis as a user",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{URL}}/api/v1/auth/profile",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"profile"
+							]
+						},
+						"description": "Update Profile berdasarkan user_id"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Logged In User via Token",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AUTHTOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/v1/auth/me",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"me"
+							]
+						},
+						"description": "Cek user login berdasarkan token"
+					},
+					"response": []
+				}
+			],
+			"description": "User dan Admin dapat register, login, verifikasi email dengan kode otp dan mengupdate profile"
+		}
+	]
+}

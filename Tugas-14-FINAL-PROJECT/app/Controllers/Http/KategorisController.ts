@@ -70,7 +70,7 @@ export default class KategorisController {
             // const kategoriData = await Database.from('kategoris').where('id', kategoriId).first()
 
             // Using ORM
-            const kategoriData = await Kategori.findOrFail(kategoriId)
+            const kategoriData = await Kategori.query().where('id', kategoriId).preload('bukus').firstOrFail()
 
             response.json({
                 status: 'success',

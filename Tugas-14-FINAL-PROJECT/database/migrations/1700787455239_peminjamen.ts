@@ -8,7 +8,7 @@ export default class extends BaseSchema {
       table.increments('id').primary()
       table.integer('user_id').unsigned().notNullable().references('users.id').onDelete('CASCADE')
       table.integer('buku_id').unsigned().notNullable().references('bukus.id').onDelete('CASCADE')
-      table.date('tanggal_pinjam').notNullable()
+      table.date('tanggal_pinjam')
       table.date('tanggal_kembali')
       table.timestamps(true, true)
     })

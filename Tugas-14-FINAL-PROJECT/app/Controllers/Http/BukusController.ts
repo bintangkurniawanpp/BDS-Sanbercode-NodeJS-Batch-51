@@ -10,7 +10,7 @@ export default class BukusController {
             // const bukuData = await Database.from('bukus').select('*')
 
             // Using ORM
-            const bukusData = await Buku.all()
+            const bukusData = await Buku.query().preload('kategori')
             response.status(200).json({
                 status: 'success',
                 message: 'Success retrieving bukus data',
@@ -64,8 +64,16 @@ export default class BukusController {
             // const bukuData = await Database.from('bukus').where('id', bukuId).first()
 
             // Using ORM
-            const bukuData = await Buku.findOrFail(bukuId)
+            // const bukuData = await Buku.findOrFail(bukuId)
 
+            const bukuData = await Buku
+                .query()
+                .where('id', bukuId)
+                .preload('kategori')
+                .preload('users', (query) => {
+                query.pivotColumns(['tanggal_pinjam', 'tanggal_kembali'])
+            })
+            
             response.json({
                 status: 'success',
                 message: `Success retrieving buku with id of ${bukuId}`,

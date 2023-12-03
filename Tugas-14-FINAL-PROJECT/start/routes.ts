@@ -25,15 +25,37 @@ Route.get('/', async () => {
   return { hello: 'world' }
 })
 
-Route
-  .group(() => {
-    Route.resource('kategori', 'KategorisController').apiOnly().middleware({'*': ['auth']})
-    Route.resource('buku', 'BukusController').apiOnly()
+Route.group(() => {
+    // Kategori route
+    Route.resource('kategori', 'KategorisController')
+      .apiOnly()
+      .middleware({
+        index: ['auth', 'isVerified'],
+        show: ['auth', 'isVerified', 'isAdmin'],
+        store: ['auth', 'isVerified', 'isAdmin'],
+        update: ['auth', 'isVerified', 'isAdmin'],
+        destroy: ['auth', 'isVerified', 'isAdmin'],
+      })
+    // Buku Route
+    Route.resource('buku', 'BukusController')
+      .apiOnly()
+      .middleware({
+        index: ['auth', 'isVerified'],
+        show: ['auth', 'isVerified', 'isAdmin'],
+        store: ['auth', 'isVerified', 'isAdmin'],
+        update: ['auth', 'isVerified', 'isAdmin'],
+        destroy: ['auth', 'isVerified', 'isAdmin'],
+      })
+    // Peminjaman route
+    Route.post('/buku/:id/peminjaman', 'PeminjamenController.store').middleware(['auth', 'isVerified', 'userOnly'])
+    Route.get('/peminjaman', 'PeminjamenController.index').middleware(['auth', 'isVerified', 'isAdmin'])
+    Route.get('/peminjaman/:id', 'PeminjamenController.show').middleware(['auth', 'isVerified', 'isAdmin'])
+    // Auth route
     Route.group(() => {
       Route.post('/register', 'AuthController.register')
       Route.post('/login', 'AuthController.login')
-      Route.post('/profile', 'Authcontroller.updateProfile').middleware('auth')
-      Route.post('/otp-confirmation', 'Authcontroller.otpConfirm')
+      Route.post('/otp-confirmation', 'Authcontroller.otpConfirm').middleware('auth')
       Route.get('/me', 'AuthController.me').middleware('auth')
+      Route.post('/profile', 'Authcontroller.updateProfile').middleware('auth')
     }).prefix('auth')
   }).prefix('/api/v1')
